@@ -19,7 +19,7 @@ public class Content {
     }
 
     @PostConstruct
-    private void buildPersonas() {
+    public void buildPersonas() {
         for(int i=1; i<=10; i++) {
             Persona persona = new Persona();
             persona.setNombre("Nombre "+i);
