@@ -4,7 +4,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -28,11 +27,17 @@
             </p:column>
 
             <p:column headerText="paterno">
-                <h:outputText value="#{persona.apellidoPaterno}" />
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{persona.apellidoPaterno}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{persona.apellidoPaterno}" style="width:100%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="materno">
-                <h:outputText value="#{persona.apellidoMaterno}" />
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{persona.apellidoMaterno}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{persona.apellidoMaterno}" style="width:100%"/></f:facet>
+                </p:cellEditor>
             </p:column>
 
             <p:column headerText="direccion">

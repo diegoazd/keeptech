@@ -33,7 +33,9 @@ public class Content {
     }
 
     public void onRowEdit(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Cambio Nombre", ((Persona) event.getObject()).getNombre());
+        Persona persona = (Persona) event.getObject();
+        String mesagge = "Nuevo nombre "+persona.getNombre()+" "+persona.getApellidoPaterno()+" "+persona.getApellidoMaterno();
+        FacesMessage msg = new FacesMessage("", mesagge);
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
