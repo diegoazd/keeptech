@@ -1,4 +1,4 @@
 languaje: java
 
-mvn test -B
+script: mvn test -B
 
