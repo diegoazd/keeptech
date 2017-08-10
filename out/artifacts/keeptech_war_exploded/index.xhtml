@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+    <h1>Keeptech</h1>
+
+    <p:dataTable var="persona" value="#{content.personas}">
+        <p:column headerText="nombre">
+            <h:outputText value="#{persona.nombre}" />
+        </p:column>
+
+        <p:column headerText="paterno">
+            <h:outputText value="#{persona.apellidoPaterno}" />
+        </p:column>
+
+        <p:column headerText="materno">
+            <h:outputText value="#{persona.apellidoMaterno}" />
+        </p:column>
+
+        <p:column headerText="direccion">
+            <h:outputText value="#{persona.direccion}" />
+        </p:column>
+
+        <p:column headerText="telefono">
+            <h:outputText value="#{persona.telefono}" />
+        </p:column>
+    </p:dataTable>
+</h:body>
+</html>
