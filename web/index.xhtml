@@ -11,27 +11,42 @@
 </h:head>
 <h:body>
     <h1>Keeptech</h1>
+    <h:form id="form">
+        <p:growl id="msgs" showDetail="true"/>
 
-    <p:dataTable var="persona" value="#{content.personas}">
-        <p:column headerText="nombre">
-            <h:outputText value="#{persona.nombre}" />
-        </p:column>
+        <p:dataTable var="persona" value="#{content.personas}" editable="true" style="margin-bottom:20px">
+            <f:facet name="header">
+                Row Editing
+            </f:facet>
+            <p:ajax event="rowEdit" listener="#{content.onRowEdit}" update=":form:msgs" />
 
-        <p:column headerText="paterno">
-            <h:outputText value="#{persona.apellidoPaterno}" />
-        </p:column>
+            <p:column headerText="Nombre">
+                <p:cellEditor>
+                    <f:facet name="output"><h:outputText value="#{persona.nombre}" /></f:facet>
+                    <f:facet name="input"><p:inputText id="modelInput" value="#{persona.nombre}" style="width:100%"/></f:facet>
+                </p:cellEditor>
+            </p:column>
 
-        <p:column headerText="materno">
-            <h:outputText value="#{persona.apellidoMaterno}" />
-        </p:column>
+            <p:column headerText="paterno">
+                <h:outputText value="#{persona.apellidoPaterno}" />
+            </p:column>
 
-        <p:column headerText="direccion">
-            <h:outputText value="#{persona.direccion}" />
-        </p:column>
+            <p:column headerText="materno">
+                <h:outputText value="#{persona.apellidoMaterno}" />
+            </p:column>
 
-        <p:column headerText="telefono">
-            <h:outputText value="#{persona.telefono}" />
-        </p:column>
-    </p:dataTable>
+            <p:column headerText="direccion">
+                <h:outputText value="#{persona.direccion}" />
+            </p:column>
+
+            <p:column headerText="telefono">
+                <h:outputText value="#{persona.telefono}" />
+            </p:column>
+
+            <p:column style="width:32px">
+                <p:rowEditor />
+            </p:column>
+        </p:dataTable>
+    </h:form>
 </h:body>
 </html>

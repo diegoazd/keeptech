@@ -1,9 +1,12 @@
 package com.peektech.web.ui;
 
 import com.peektech.web.ui.model.Persona;
+import org.primefaces.event.RowEditEvent;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,5 +30,13 @@ public class Content {
 
             personas.add(persona);
         }
+    }
+
+    public void onRowEdit(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Cambio Nombre", ((Persona) event.getObject()).getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+
+    public void onRowCancel(RowEditEvent event) {
     }
 }
